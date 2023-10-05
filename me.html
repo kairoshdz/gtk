@@ -4,6 +4,20 @@
     Lewis University Intro To Computer Science
 -->
 <html lang="en">
+    <script>
+        function clickCounter() {
+          if (typeof(Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+              sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            } else {
+              sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result").innerHTML = sessionStorage.clickcount;
+          } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+          }
+        }
+        </script>
 <head>
     <meta charset="UTF-8">
     <title>Erick‘s Website</title>
@@ -41,9 +55,14 @@
 </ul>
 <h3>My Favorite Hobby</h3>
 <p>I‘m a musician. I‘ve been playing guitar for the past three years and I‘m one third of a
-     Sierreño band. I release <br> music under <i>Kairos 8ight</i> and I have a new single coming 
-     out in the next few weeks called “NADA.“ <br> <a href="https://linktr.ee/kairos8ight"> You 
-        can check my music out by clicking here.</a></p>
+     Sierreño band. I release <br> music under <i>Kairos 8ight.</i> here‘s my new single, NADA.
+     <br><br> <a href="https://linktr.ee/kairos8ight"> You can check out my other music 
+        available on all platforms out by clicking here.</a></p>
+        <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/-NKS0bfpUMo?si=vIGhdykpcxUxed7v&loop=1" title="NADA." 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+        gyroscope; picture-in-picture; web-share" allowfullscreen>
+    </iframe>
 <h4>Fun Fact</h4>
 <p>I own five guitars and a bass. I‘m thinking of selling a guitar and buying two more though. 
     I‘ll probably gift the <br> bass to someone and also buy a new one.</p>
@@ -60,5 +79,7 @@
 <img src="https://assets.vogue.com/photos/63113ccc1c979041e1d8d432/master/w_960,c_limit/GettyImages-1353857354.jpg" 
 alt="San Miguel De Allende" title="Picture of San Miguel De Allende, Guanajuato, 
 Mexico" style="width:500px;height:300px;">
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
 </body>
 </html>
